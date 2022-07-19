@@ -1,0 +1,15 @@
+services:
+  search_collector:
+    class: 'Drupal\ricknmorty\RickAndMortySearchCollector'
+    tags:
+      - { name: 'service_collector', tag: 'search_resolver', call: 'addResolver'}
+  search_collector.base:
+    class: 'Drupal\ricknmorty\SearchResolverBase'
+    abstract: true
+    calls:
+      - [setClient, ['@http_client']]
+  default_resolver:
+    parent: search_collector.base
+    class: 'Drupal\ricknmorty\Resolvers\DefaultResolver'
+    tags:
+      - { name: 'search_resolver' }

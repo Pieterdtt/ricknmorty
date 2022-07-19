@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Ricknmorty module.
+ */
+
+function ricknmorty_theme()
+{
+  return [
+    'rm_search_result' => [
+      'variables' => [
+        'name' => NULL,
+        'fields' => NULL,
+      ],
+    ]
+  ];
+}
